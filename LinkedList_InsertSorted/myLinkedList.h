@@ -11,9 +11,51 @@ public:
     int deleteFromTail();
     bool isEmpty();
     void insertSorted(int);
+    bool deleteValue(int);
 
 
 };
+
+bool myLinkedList::deleteValue(int value)
+{
+    if (head==nullptr && tail == nullptr) //LL is empty
+        return false;
+
+    else if (value == head->data)
+    {
+        deleteFromHead();
+        return true;
+    }
+
+    else if (value == tail->data)
+    {
+        deleteFromTail();
+        return true;
+    }
+
+    else
+    {
+        Node*t = head;
+
+        while(true)
+        {
+            if (t->next->data == value)
+            {
+                Node*t2 = t->next;
+                t->next = t->next->next;
+                delete t2;
+                t2 = nullptr;
+                return true;
+            }
+
+            else
+                t = t->next;
+
+            if (t->next == nullptr)
+                return false;
+        }
+    }
+}
 
 void myLinkedList::insertSorted(int value)
 {

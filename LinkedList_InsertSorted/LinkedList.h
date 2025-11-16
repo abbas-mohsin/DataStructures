@@ -16,6 +16,10 @@ public:
     virtual int deleteFromTail() = 0;
     virtual bool isEmpty() = 0;
     virtual void insertSorted(int) = 0;
+
+    virtual bool deleteValue(int) = 0;
+
+    virtual bool search(int) = 0; //to be implemented by students
 };
 
 
